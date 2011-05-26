@@ -54,7 +54,7 @@ class Figlet(callbacks.Plugin):
         """<text>
         Transform incoming text to ASCII art.
         """
-        dir = '/home/oldhome/awood/bot/plugins/Figlet/fonts'
+        dir = self.registryValue('fontDirectory')
         font = self._FindFont(dir)
         
         fig = pyfiglet.Figlet(dir=dir, font=font)        

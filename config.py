@@ -38,12 +38,15 @@ def configure(advanced):
     # registry as appropriate.
     from supybot.questions import expect, anything, something, yn
     conf.registerPlugin('Figlet', True)
+    directory = anything("""What directory are your Figlet font files in?""")
+    Figlet.fontDirectory.setValue(directory)
 
 
 Figlet = conf.registerPlugin('Figlet')
 # This is where your configuration variables (if any) should go.  For example:
-# conf.registerGlobalValue(Figlet, 'someConfigVariableName',
-#     registry.Boolean(False, """Help for someConfigVariableName."""))
+conf.registerGlobalValue(Figlet, 'fontDirectory',
+    registry.String('', """The absolute path to the directory containing the
+        figlet fonts."""))
 
 
 # vim:set shiftwidth=4 tabstop=4 expandtab textwidth=79:
